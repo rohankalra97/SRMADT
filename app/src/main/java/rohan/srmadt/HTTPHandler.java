@@ -11,7 +11,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import javax.net.ssl.HttpsURLConnection;
 
 /**
  * Created by Rohankalra97 on 15-08-2016.
@@ -24,6 +23,7 @@ public class HTTPHandler {
 
     public String GetHTTPData(String urlString) {
         try {
+
             URL url = new URL(urlString);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             if (urlConnection.getResponseCode() == 200) {

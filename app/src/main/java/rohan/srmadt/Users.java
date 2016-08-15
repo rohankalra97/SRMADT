@@ -12,18 +12,18 @@ import org.json.JSONObject;
 
 public class Users extends AppCompatActivity {
 
-    private TextView tv;
-
-    private static String urlString = "http://jsonplaceholder.typicode.com/users";
+    public TextView tv;
+    private static String urlString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        TextView tv = (TextView) findViewById(R.id.tv);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
+        urlString = "http://jsonplaceholder.typicode.com/users";
         new ProcessJSON().execute(urlString);
     }
         private class ProcessJSON extends AsyncTask<String, Void, String> {
-            @Override
             protected String doInBackground(String... strings) {
                 String stream = null;
                 String urlString = strings[0];
