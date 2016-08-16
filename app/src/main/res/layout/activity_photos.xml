@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="rohan.srmadt.Users">
+    tools:context="rohan.srmadt.Photos">
 
     <ScrollView
         android:id="@+id/SCROLLER_ID"
@@ -15,12 +15,17 @@
         android:layout_height="wrap_content"
         android:scrollbars="vertical"
         android:fillViewport="true">
-            <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="We are processing the JSON data...."
             android:id="@+id/Tv"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView" />
     </ScrollView>
+
 </LinearLayout>

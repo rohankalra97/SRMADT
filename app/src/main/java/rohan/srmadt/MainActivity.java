@@ -26,26 +26,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        /*button1.setOnClickListener(new View.OnClickListener() {
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(this,Posts.class);
+                Intent intent =new Intent(MainActivity.this,Posts.class);
                 startActivity(intent);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(this,Comments.class);
+                Intent intent=new Intent(MainActivity.this,Comments.class);
+                startActivity(intent);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(this,Photos.class);
+                Intent intent=new Intent(MainActivity.this,Photos.class);
+                startActivity(intent);
             }
         });
-        */
+
     }
 
 }
