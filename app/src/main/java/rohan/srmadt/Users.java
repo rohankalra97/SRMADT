@@ -12,16 +12,17 @@ import org.json.JSONObject;
 
 public class Users extends AppCompatActivity {
 
-    public TextView tv;
     private static String urlString;
-
+    private TextView tv1;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        TextView tv = (TextView) findViewById(R.id.tv);
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_users);
+        tv1=(TextView) findViewById(R.id.Tv);
+        tv1.setText("");
         urlString = "http://jsonplaceholder.typicode.com/users";
         new ProcessJSON().execute(urlString);
+
     }
         private class ProcessJSON extends AsyncTask<String, Void, String> {
             protected String doInBackground(String... strings) {
@@ -35,17 +36,16 @@ public class Users extends AppCompatActivity {
             }
             @Override
             protected void onPostExecute(String stream) {
-                TextView tv = (TextView) findViewById(R.id.tv);
-                if (stream != null) {
+                if (stream!=null) {
                     try {
                         JSONObject reader = new JSONObject(stream);
                         String id = reader.getString("id");
                         String name = reader.getString("name");
                         String username = reader.getString("username");
-                        tv.setText("We are processing the JSON data....\n\n");
-                        tv.setText(tv.getText() + id);
-                        tv.setText(tv.getText() + name);
-                        tv.setText(tv.getText() + username);
+                        tv1.setText(tv1.getText()+ "We are processing the JSON data....\n\n");
+                        tv1.setText(tv1.getText() + id);
+                        tv1.setText(tv1.getText() + name);
+                        tv1.setText(tv1.getText() + username);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
