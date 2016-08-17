@@ -34,6 +34,7 @@ public class Photos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts);
         tv1 = (TextView) findViewById(R.id.Tv);
+        imageView=(ImageView) findViewById(R.id.imageView);
         tv1.setText(tv1.getText() + "\n\n");
         urlString = "http://jsonplaceholder.typicode.com/photos";
         new ProcessJSON().execute(urlString);
