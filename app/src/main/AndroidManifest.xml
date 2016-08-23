@@ -21,7 +21,8 @@
         <activity android:name=".Posts" />
         <activity android:name=".Comments" />
         <activity android:name=".Photos" />
-        <activity android:name=".Usersdb"></activity>
+        <activity android:name=".Usersdb" />
+        <activity android:name=".PhotosDB"></activity>
     </application>
 
 </manifest>
