@@ -1,5 +1,7 @@
 package rohan.srmadt;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,13 +16,15 @@ public class Comments extends AppCompatActivity {
 
     private static String urlString;
     public TextView tv1;
-
+    public SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comments);
         tv1 = (TextView) findViewById(R.id.Tv);
         tv1.setText(tv1.getText() + "\n\n");
+        db=openOrCreateDatabase("CommentsDB", Context.MODE_PRIVATE, null);
+        db.execSQL("CREATE TABLE IF NOT EXISTS Comments(PostId VARCHAR, Name VARCHAR, Email VARCHAR, Body VARCHAR);");
         urlString = "http://jsonplaceholder.typicode.com/comments";
         new ProcessJSON().execute(urlString);
     }
@@ -47,6 +51,7 @@ public class Comments extends AppCompatActivity {
                         String email = jsonObject.getString("email");
                         String body = jsonObject.getString("body");
                         tv1.setText(tv1.getText() + "\n PostID " + postid + "\n Name " + name + "\n Email " + email + "\n Body " + body + "\n\n");
+                        db.execSQL("INSERT INTO Comments VALUES('"+postid+"','"+name+"','"+email+"','"+body+"');");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
